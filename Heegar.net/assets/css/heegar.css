@@ -1,0 +1,64 @@
+﻿.feed .date {
+font-size:.7em;
+color:#BF4D44;
+}
+.feed .title {
+    font-size:1.1em;
+    color:#5BAAFE;
+}
+
+.feed .evenRow {
+    color:black;
+}
+
+.feed .oddRow {
+    color:black;
+}
+
+.lightText {
+    font-size:.8em;
+    color:#A4BFD2;
+}
+.tooltip {
+    /*position: relative;
+    display: inline-block;*/
+    border-bottom: 1px dotted #394349; /* If you want dots under the hoverable text */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 180px;
+    background-color: #394349;
+    color: #8EC5FE;
+    text-align: center;
+    padding: 5px 0;
+    margin:0px 8px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 1.5s;    
+    -webkit-transition-delay: .3s; /* Safari */
+    transition-delay: .3s;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 13px;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #394349 transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: .9;
+}
+
+.ROJAQuestion {
+    font-size:1.2em;
+    color:#e58816;
+    font-weight:bold;
+}

@@ -1,0 +1,22 @@
+﻿#9fa3a6
+#f56a6a		a, header.major
+#7f888f		input, body, textarea
+#3d4449		bold, H1-6, label, table head
+#9fa3a6		placeholder ?, 
+#f67878		hovering LI
+#f45c5c		active LI
+#7f888f		sidebar
+
+backgrounds
+#f5f6f7
+#eff1f2
+
+
+
+Replacement Pattern:
+
+#f5f6f7		>		A4BFD2
+#eff1f2   	>
+#f67878		>		2E6EB2
+#f56a6a		>		5BAAFE
+#3d4449		>		394349	

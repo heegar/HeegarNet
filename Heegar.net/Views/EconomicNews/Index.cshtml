@@ -1,0 +1,139 @@
+﻿@model Heegar.net.Models.HomeModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+<meta name="author" content="Adam Heeg" />
+<meta name="description" content="Adam Heeg's favorite links for Economics and Financial news." />
+<meta name="keywords" content="Adam Heeg, Adam, Heeg, Richard, Adam Richard Heeg, heegar, The Economist, Financial News, Economic News, Economic Podcosts" />
+
+<h2>Economic News</h2>
+
+<input  type="button" value="Remove Images" onclick="RemoveImages();" />
+<section>
+    <div class="row feed">
+    <div class="6u 12u$(small)">
+            
+      <table>
+        <thead style="">
+            <tr><th><a href="http://www.economist.com/" target="_blank"><h2>The Economist: Economics Feed</h2></a></th></tr>
+        </thead>
+        @{int i = 1;}
+        @foreach (var feedItem in Model.Feed_Economist_Economics)
+        {
+            <tr @(i % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td>
+                <div class="title">@Html.DisplayFor(modelItem => feedItem.Title)</div><br />
+                <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            i++;
+        }
+      </table>
+   </div>
+
+   <div class="6u 12u$(small)">
+            
+      <table>
+        <thead style="">
+            <tr><th><a href="http://www.economist.com/" target="_blank"><h2>The Economist: Business and Finance Feed</h2></a></th></tr>
+        </thead>
+        @{int ii = 1;}
+        @foreach (var feedItem in Model.Feed_Economist_BusinessFinance)
+        {
+            <tr @(ii % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td>
+                <div class="title">@Html.DisplayFor(modelItem => feedItem.Title)</div><br />
+                <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            ii++;
+        }
+      </table>
+    </div>
+    </div>
+</section>
+
+<section>
+    <div class="row feed">
+    <div class="6u 12u$(small)">
+            
+      <table>
+        <thead style="">
+            <tr><th><a href="http://www.economist.com/" target="_blank"><h2>The Economist: Science and Technology Feed</h2></a></th></tr>
+        </thead>
+        @{int iii = 1;}
+        @foreach (var feedItem in Model.Feed_Economist_ScienceAndTechnology)
+        {
+            <tr @(iii % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td>
+                <div class="title">@Html.DisplayFor(modelItem => feedItem.Title)</div><br />
+                <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            iii++;
+        }
+      </table>
+   </div>
+
+   <div class="6u 12u$(small)">
+            
+      <table>
+        <thead style="">
+            <tr><th><a href="http://www.economist.com/" target="_blank"><h2>The Economist: USA Feed</h2></a></th></tr>
+        </thead>
+        @{int iiii = 1;}
+        @foreach (var feedItem in Model.Feed_Economist_TheUSA)
+        {
+            <tr @(iiii % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td>
+                <div class="title">@Html.DisplayFor(modelItem => feedItem.Title)</div><br />
+                <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            iiii++;
+        }
+      </table>
+    </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    //$(document).ready(
+    function RemoveImages() {
+
+        //Remove all images (too bulky for home page)
+        $('div .feed img').each(
+            function () {
+                $(this).remove();
+            });
+
+        //Add target blank to all links in feed so I don't ever leave my awesome page.
+        $('div .feed a').each(
+            function () {
+                $(this).attr('target', '_blank');
+            });
+    }//);
+
+    $(document).ready(
+    function RemoveImages() {
+
+        //Remove all images (too bulky for home page)
+        $('div .feed img').each(
+            function () {
+                $(this).css('width','auto').css('max-width', '400px');
+            });
+
+        //Add target blank to all links in feed so I don't ever leave my awesome page.
+        $('div .feed a').each(
+            function () {
+                $(this).attr('target', '_blank');
+            });
+    });
+</script>

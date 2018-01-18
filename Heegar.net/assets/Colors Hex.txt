@@ -1,0 +1,36 @@
+﻿Complementary
+ 
+Blue
+            2E6EB2
+Light Blue
+            5BAAFE
+Dark Blue
+            103965
+Dark Yellow
+            654206
+Light Yellow
+            B2822E
+ 
+ 
+Dark Grey/Blue
+			394349
+Light Grey/Blue
+			A4BFD2
+ 
+Triad
+ 
+Dark Red
+            BF4D44
+Dark Blue
+            103965
+Light YellowGreen
+            E5FE35
+ 
+ 
+MonoChromatic
+Light to Dark
+ 
+8EC5FE
+429DFE
+6B93BF
+214E7F

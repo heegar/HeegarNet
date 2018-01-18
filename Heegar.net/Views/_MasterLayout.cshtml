@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Heegar.net by Adam Heeg</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- Scripts -->
+@*    @Styles.Render("~/assets/css")*@
+<script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/lorem/jquery")"></script>
+ <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/lorem/css")" rel="stylesheet">
+        <link rel="icon" href="~/favicon.ico?v=3" />
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html" class="logo"><strong>Heegar.net</strong> by Adam Heeg</a>
+									<ul class="icons">
+										<li><a href="https://brokercheck.finra.org/individual/summary/5119098" target="_blank" class="icon fa-id-card-o" aria-hidden="true"><span class="label">FINRA Profile</span></a></li>
+										<li><a href="https://twitter.com/heegar" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.linkedin.com/in/heegar" target="_blank" class="icon fa-linkedin"><span class="label">Linked-in</span></a></li>
+										<li><a href="http://stackoverflow.com/users/3250318/adam-heeg" target="_blank" class="icon fa-stack-overflow"><span class="label">Stack Overflow</span></a></li>
+										<li><a href="https://medium.com/&#64;heegar" target="_blank" class="icon fa-medium"><span class="label">Medium</span></a></li>
+										<li><a href="https://www.biblegateway.com/passage/?search=John+1&version=ESV" target="_blank" class="icon fa-book"><span class="label">Bible</span></a></li>
+									</ul>
+								</header>
+
+							<!-- Section BODY -->
+                            
+									@RenderBody()
+
+						</div>
+         <footer id="footer" 
+            style="text-align:center; background-color:#A4BFD2;border-top:solid 5px #2E6EB2;padding-top:15px; padding-bottom:15px;">       
+            Adam Heeg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tel:+19412861356">(941) 286-1356</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;heegar@gmail.com
+            <br />
+           <div style="font-size:.8em;">
+                <a href="~/home" class="logo">Heegar.net by Adam Heeg</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Design by: <a target="_blank" href="https://html5up.net">HTML5 UP</a>
+
+           </div>
+        </footer>
+					</div>
+
+
+				@Html.Partial("~/Views/_Sidebar.cshtml")
+
+     
+			</div>
+@*    @Scripts.Render("~/bundles/scripting")*@
+
+<script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/lorem/scripting")"></script>
+	</body>
+</html>

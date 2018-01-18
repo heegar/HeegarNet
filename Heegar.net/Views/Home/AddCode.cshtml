@@ -1,0 +1,31 @@
+﻿@model Heegar.net.Models.AddCodeModel
+@{
+    ViewBag.Title = "AddCode";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+
+<h2>AddCode</h2>
+
+<input type="text" id="codeToSubmit" />
+ 
+    @{Html.BeginForm("AddCode", "Home");}
+@Html.DropDownListFor(m => m.SelectedCodeType, Model.CodeTypesList, new { @id = "ddlCodeTypes" })
+@Html.HiddenFor(m => m.IsAuthenticated)
+@Html.HiddenFor(m => m.CodeSamplesForSelectedType)
+<input type="button" value="Refresh List" id="btnTicketFilter" />
+
+<div id="divTicketList">
+    @*@Html.Partial("_TicketList", Model)*@
+    List of code samples here
+</div>
+<div id="disablingDiv">
+    <div id="progressbar" class="ui-progressbar-indeterminate" />
+</div>
+
+        <input type="submit" value="Submit" />
+@Html.ActionLink("Postback test", "AddCode", "Home")
+
+    @{Html.EndForm();}
+
+
+<script src="~/Scripts/ViewScripts/addcode.js"></script>

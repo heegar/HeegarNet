@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Heegar.data.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="HeegardataStoreContainer">
+          <EntitySet Name="CodeSample" EntityType="Heegar.data.Store.CodeSample" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CodeType" EntityType="Heegar.data.Store.CodeType" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CodeSample_CodeType" Association="Heegar.data.Store.FK_CodeSample_CodeType">
+            <End Role="CodeType" EntitySet="CodeType" />
+            <End Role="CodeSample" EntitySet="CodeSample" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CodeSample">
+          <Key>
+            <PropertyRef Name="CodeSampleID" />
+          </Key>
+          <Property Name="CodeSampleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CodeTypeID" Type="int" Nullable="false" />
+          <Property Name="ShortDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="DetailedNotes" Type="nvarchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="CodeType">
+          <Key>
+            <PropertyRef Name="CodeTypeID" />
+          </Key>
+          <Property Name="CodeTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CodeSample_CodeType">
+          <End Role="CodeType" Type="Heegar.data.Store.CodeType" Multiplicity="1" />
+          <End Role="CodeSample" Type="Heegar.data.Store.CodeSample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeType">
+              <PropertyRef Name="CodeTypeID" />
+            </Principal>
+            <Dependent Role="CodeSample">
+              <PropertyRef Name="CodeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Heegar.data" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MainConnection" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CodeSamples" EntityType="Heegar.data.CodeSample" />
+          <EntitySet Name="CodeTypes" EntityType="Heegar.data.CodeType" />
+          <AssociationSet Name="FK_CodeSample_CodeType" Association="Heegar.data.FK_CodeSample_CodeType">
+            <End Role="CodeType" EntitySet="CodeTypes" />
+            <End Role="CodeSample" EntitySet="CodeSamples" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CodeSample">
+          <Key>
+            <PropertyRef Name="CodeSampleID" />
+          </Key>
+          <Property Name="CodeSampleID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ShortDescription" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="DetailedNotes" Type="String" MaxLength="600" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CodeType" Relationship="Heegar.data.FK_CodeSample_CodeType" FromRole="CodeSample" ToRole="CodeType" />
+        </EntityType>
+        <EntityType Name="CodeType">
+          <Key>
+            <PropertyRef Name="CodeTypeID" />
+          </Key>
+          <Property Name="CodeTypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CodeSamples" Relationship="Heegar.data.FK_CodeSample_CodeType" FromRole="CodeType" ToRole="CodeSample" />
+        </EntityType>
+        <Association Name="FK_CodeSample_CodeType">
+          <End Role="CodeType" Type="Heegar.data.CodeType" Multiplicity="1" />
+          <End Role="CodeSample" Type="Heegar.data.CodeSample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CodeType">
+              <PropertyRef Name="CodeTypeID" />
+            </Principal>
+            <Dependent Role="CodeSample">
+              <PropertyRef Name="CodeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HeegardataStoreContainer" CdmEntityContainer="MainConnection">
+          <EntitySetMapping Name="CodeSamples">
+            <EntityTypeMapping TypeName="Heegar.data.CodeSample">
+              <MappingFragment StoreEntitySet="CodeSample">
+                <ScalarProperty Name="CodeSampleID" ColumnName="CodeSampleID" />
+                <ScalarProperty Name="CodeTypeID" ColumnName="CodeTypeID" />
+                <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+                <ScalarProperty Name="DetailedNotes" ColumnName="DetailedNotes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeTypes">
+            <EntityTypeMapping TypeName="Heegar.data.CodeType">
+              <MappingFragment StoreEntitySet="CodeType">
+                <ScalarProperty Name="CodeTypeID" ColumnName="CodeTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

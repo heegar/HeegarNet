@@ -1,0 +1,61 @@
+﻿@model Heegar.net.Models.ChristianApologeticsModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+<meta name="author" content="Adam Heeg" />
+<meta name="description" content="Review of Christian Apologetics." />
+<meta name="keywords" content="Adam Heeg, Adam, Heeg, Richard, Adam Richard Heeg, heegar, Christian Apologetics, Apologetics, Bible, Fellowship Church" />
+
+
+<h2>Christian Apologetics</h2>
+<p>
+    The task of developing and sharing arguments for the truth and rationality of Christianity and the falsehood and irrationality of alternatives with the aim of strengthening the faith of believers and provoking non-believers to consider Christ.
+</p>
+<section>
+    <div class="row feed">
+        <div class="6u 12u$(small)">
+
+            <table>
+                <thead style="">
+                    <tr><th><a href="https://www.desiringgod.org/ask-pastor-john" target="_blank"><h2>John Piper: Ask Pastor John</h2></a></th></tr>
+                </thead>
+                @{int ii = 1;}
+                @foreach (var feedItem in Model.Feed_AskPastorJohn)
+                {
+                    <tr @(ii % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                        <td>
+                            <div class="title"><a href=@feedItem.Link target="_blank">@Html.DisplayFor(modelItem => feedItem.Title)</a>
+</div><br />
+                            <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                            @Html.Raw(feedItem.Summary) 
+                        </td>
+                    </tr>
+                    ii++;
+                }
+            </table>
+        </div><div class="6u 12u$(small)">
+
+    <table>
+        <thead style="">
+            <tr><th><a href="http://rzim.org/let-my-people-think-broadcasts/" target="_blank"><h2>Ravi Zacharias: Let My People Think</h2></a></th></tr>
+        </thead>
+        @{int n = 1;}
+        @foreach (var feedItem in Model.Feed_RaviLetMyPeopleThink)
+        {
+            <tr @(n % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td><div class="title">
+    <a href=@feedItem.Link target="_blank">@Html.DisplayFor(modelItem => feedItem.Title)</a>
+</div><br />
+                    <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                    @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            ii++;
+        }
+    </table>
+</div>
+
+    </div>
+</section>

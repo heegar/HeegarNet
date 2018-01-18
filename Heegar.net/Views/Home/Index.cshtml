@@ -1,0 +1,107 @@
+﻿@model Heegar.net.Models.HomeModel
+
+
+@{
+ViewBag.Title = "Adam Heeg .Net";
+Layout = "~/Views/_MasterLayout.cshtml";
+}
+
+<meta name="author" content="Adam Heeg" />
+<meta name="description" content="All about Adam Heeg including my life and work with God, family, .Net coding, and finances." />
+<meta name="keywords" content="Adam Heeg, Adam, Heeg, Richard, Adam Richard Heeg, heegar, Christian, Primerica, .Net, Visual Studio .Net, Fellowship Church" />
+
+<!-- Banner -->
+<section id="banner">
+	<div class="content">
+		<header>
+			<h2>Welcome to Heegar.net<br />
+			 by Adam Heeg</h2>
+			<p>God, Family, Code, Finances</p>
+		</header>
+		<p>Hello, wecome to my site!  This is my personal site which I use for various parts of my life and interests.  
+            I place God at the top of my list of interests, and He is at the center of what I do and how I live.  However, 
+            there is much room for growth.  I'm blessed to have a wife and 3 children to help me with that growth!
+            <blockquote>God has given you the right and the power to decide whether or not you will accept a thought.</blockquote>
+		</p>
+		<ul class="actions">
+			<li><a href="#" class="button big">Learn More</a></li>
+		</ul>
+	</div>
+	<span class="image object">
+		<img src="images/adam_face.png" alt="" />
+	</span>
+</section>
+<section>
+    <div class="content">
+        <h4>Excerpt From The Shepherd of Hermas</h4>
+        <p>
+            said she; “for the thoughts of a righteous man should be righteous. For by thinking righteously his character is established in the heavens, and he has the Lord merciful to him in every business. But such as entertain wicked thoughts in their minds are bringing upon themselves death and captivity; and especially is this the case with those who set their affections on this world, and glory in their riches, and look not forward to the blessings of the life to come. For many will their regrets be; for they have no hope, but have despaired of themselves and their life. But do thou pray to God, and He will heal thy sins, and the sins of thy whole house, and of all the saints.”
+        </p>
+    </div>
+</section>
+<section>
+    <div class="row feed">
+    <div class="6u 12u$(small)">
+            
+      <table>
+        <thead style="">
+            <tr><th><a href="http://www.economist.com/" target="_blank"><h2>The Economist: Economics Feed</h2></a></th></tr>
+        </thead>
+        @{int i = 1;}
+        @foreach (var feedItem in Model.Feed_Economist_Economics)
+        {
+            <tr @(i % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td>
+                <div class="title">@Html.DisplayFor(modelItem => feedItem.Title)</div><br />
+                <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            i++;
+        }
+      </table>
+   </div>
+
+   <div class="6u 12u$(small)">
+            
+      <table>
+        <thead style="">
+            <tr><th><a href="http://www.upwork.com/" target="_blank"><h2>ASP.Net Gigs on UpWork</h2></a></th></tr>
+        </thead>
+        @{int ii = 1;}
+        @foreach (var feedItem in Model.Feed_UplinkASPNetJobs)
+        {
+            <tr @(ii % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                <td>
+                <div class="title">@Html.DisplayFor(modelItem => feedItem.Title)</div><br />
+                <div class="date">@Html.DisplayFor(modelItem => feedItem.PublishDate)</div><br />
+                @Html.Raw(feedItem.Summary)
+                </td>
+            </tr>
+            ii++;
+        }
+      </table>
+    </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    $(document).ready(
+    function () {
+
+        //Remove all images (too bulky for home page)
+        $('div .feed img').each(
+            function () {
+                $(this).remove();
+            });
+
+        //Add target blank to all links in feed so I don't ever leave my awesome page.
+        $('div .feed a').each(
+            function () {
+                $(this).attr('target', '_blank');
+            });
+    });
+
+
+</script>

@@ -1,0 +1,73 @@
+﻿@model Heegar.net.Models.FinancialProtectionModel
+
+<meta name="author" content="Adam Heeg" />
+<meta name="description" content="Financial Protection From Dieing Early or Living Too Long" />
+<meta name="keywords" content="Adam Heeg, Adam, Heeg, Richard, Adam Richard Heeg, heegar, Die Too Young, Live Too Long, Financial Protection, Theory of Decreasing Responsibility, Primerica, Insurance, Term Insurance, Permanent Insurance, Life Insurance, Whole Insurance" />
+
+@{
+    ViewBag.Title = "Financial Protection by Adam Heeg";
+    Layout = "~/Views/_MasterLayout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+<p>
+    Having financial protection means you are prepared for two possible mistakes.  First, you financially protect your family against the possiblity of dieing young.  Second, you financially protect yourself against the possiblity of living too long.
+    <ul>
+        <li>If you died today would your family be able to survive financially?</li>
+        <li>If you live to 100 will you have enough money?</li>
+    </ul>
+</p>
+<span class="image fit">
+    <img src="~/images/theory-of-decreasing-respnsbity.jpg" alt="Image of Theory of Decreasing Responsibility" title="The Theory of Decreasing Responsiblity" />
+</span>
+<p>
+    Dave Ramsey has a lot to say on the matter.  <blockquote>"Fees don't keep you from getting wealthy.  ... I'm a multi-millionaire and I pay mutual fund fees to my broker.... Do you know why?  I need an advisor.  I have what is known as a life."<a href="#ch"><sup>1</sup></a></blockquote>
+</p>
+<p>Wealth management funds agree: <blockquote>The case for buy term and invest the difference remains as rock solid today as it did when our founder began investing.<a href="#ce"><sup>2</sup></a></blockquote></p>
+<p>Further, the independent financial site, The Motley Fool states: <blockquote>"As the name implies, a whole life policy protects you for your entire life. It's also much more expensive for a number of reasons."   ... "I completely agree with the assertion that term life insurance is sufficient for most people."<a href="#mf"><sup>4</sup></a></blockquote></p>
+
+<section>
+    <div class="row feed">
+        <div class="9u 18u$(small)">
+            <p>
+                According to the Theory of Decreasing Responsibility, your need for life insurance peaks along with your family responsibilities.
+                <br /><br />
+                When you're young, you may have children to support, a new mortgage payment and many other obligations. Yet, you haven't had the time to accumulate much money. This is the time when the death of a breadwinner or caretaker could be devastating and when you need coverage the most.
+                <br /><br />
+                When you're older, you usually have fewer dependents and fewer financial responsibilities. Plus, you've had years to accumulate wealth through savings and investments. At this point, your need for insurance has reduced dramatically, and you have your own funds to see you through your retirement years.
+            </p>
+            <p>
+                Permanent insurance costs more and has more fees<a href="#cr"><sup>3</sup></a>. Investing the difference allows the you to access the money directly instead of loan from the policy.  A permanent life plan means you have to borrow and pay someone else to access your money!
+                <br /><br />
+                Buy term insurance and investing the difference because having investments on hand that produce income or can be converted to cash is superior to permanent insurance with a monthly premium. An account at your bank or an investment fund, which are in your name and not your insurance company's name, is better.  You own the account and the money and have legal access to it all the time.
+                <br /><br />
+                You only needed life insurance for a set "term," and when that term has ended, you should be self insured (with investments) with few, if any, financial responsibilities.
+            </p>
+</div><div class="3u 6u$(small)">
+
+            <table>
+                <thead style="">
+                    <tr><th>Further Reading</th></tr>
+                </thead>
+                @{int n = 1;}
+                @foreach (var item in Model.MoreInformationLinks)
+                {
+                    <tr @(n % 2 == 0 ? "class=evenRow" : "class=oddRow")>
+                        <td>
+                            <a href=@item.Url target="_blank">@Html.DisplayFor(modelItem => item.Description)</a>
+                        </td>
+                    </tr>
+                    n++;
+                }
+            </table>
+        </div>
+
+    </div>
+</section>
+<ul class="alt">
+    <li><sup>1</sup> <a name="ch" target="_blank" href="https://www.youtube.com/watch?v=rrBLkfWg_MI&t=5m46s"> Dave Ramsey explaining his investing process</a></li>
+    <li><sup>2</sup> <a name="ce" target="_blank" href="http://www.marottaonmoney.com/does-buy-term-and-invest-the-difference-still-work/"> Marotta Wealth Management</a></li>
+    <li><sup>3</sup> <a name="cr" target="_blank" href="https://www.daveramsey.com/blog/the-truth-about-life-insurance"> The Truth About Life Insurance</a></li>
+    <li><sup>4</sup> <a name="mf" target="_blank" href="https://www.fool.com/investing/general/2015/07/16/term-vs-whole-life-insurance-which-is-best-for-you.aspx"> Term vs. Whole Life Insurance: Which Is Best for You?</a></li>
+</ul>
+
